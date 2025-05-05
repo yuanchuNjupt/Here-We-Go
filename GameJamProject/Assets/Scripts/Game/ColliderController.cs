@@ -14,8 +14,8 @@ public class ColliderController : MonoBehaviour
     public float lateTime = 0.5f;
     [Tooltip("解谜图形的父类对象")]
     public GameObject[] fatherObj;
-    [Tooltip("解谜图形移动的固定点")]
-    public Vector3 targetPos = new Vector3(0, 0, 0);
+    [Tooltip("主图形中心")]
+    public Vector2 centerPos = new Vector2(0,0);
     [Tooltip("移动速度")]
     public float speed = 1;
 
@@ -40,6 +40,8 @@ public class ColliderController : MonoBehaviour
         }
 
         animator = GetComponent<Animator>();
+        //更新主图形坐标
+        GameDataMgr.instance.centerPos = centerPos;
     }
 
     void Update()
@@ -52,6 +54,7 @@ public class ColliderController : MonoBehaviour
             {
                 StartCoroutine(MainIE());
                 animator.enabled = true;
+                Camera.main.GetComponent<Animator>().enabled = true;
             }
         }
 
@@ -143,7 +146,7 @@ public class ColliderController : MonoBehaviour
     {
         //先移动
         print("移动");
-        yield return StartCoroutine(ShapeMoveToCenter(targetPos));
+        yield return StartCoroutine(ShapeMoveToCenter(centerPos));
         //再渐变
         print("渐变");
         yield return StartCoroutine(FadeOutShapes());

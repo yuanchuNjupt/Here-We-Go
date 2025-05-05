@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 4f27c211190f12d4e8eab24a7d9e7782
+importerOverride:
+  nativeImporterType: 2089858483
+  scriptedImporterType:
+    serializedVersion: 2
+    Hash: b10b55a1aa6a1aa32521bc0cab59632e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Triangle_rightSmall
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 590
+      y: 1611
+      width: 197
+      height: 34
+    spriteID: 347fd8264e5d8f045b562b5fe8bebf71
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 391, y: 1598}
+    spritePosition: {x: 1000, y: 2238}
+  - name: Triangle_leftSmall
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 590
+      y: 1653
+      width: 197
+      height: 34
+    spriteID: 179f16407a8d3a244b3de56b431ee9ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 1640}
+    spritePosition: {x: 803, y: 2238}
+  - name: Triangle_long
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 796
+      y: 539
+      width: 88
+      height: 1008
+    spriteID: dfd7b60dd70a5914fb4b4cce2c6d59dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 795, y: 538}
+    spritePosition: {x: 1000, y: 761}
+  - name: Triangle_updown
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1030
+      width: 394
+      height: 526
+    spriteID: 9bc8f18c0874cd44190b416b954246ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 1029}
+    spritePosition: {x: 803, y: 727}
+  - name: Rectangle
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 394
+      height: 1018
+    spriteID: 9b694d3d6bfe7a24a8e357f212d013ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 3}
+    spritePosition: {x: 803, y: 727}
+  - name: Triangle_V
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1564
+      width: 394
+      height: 476
+    spriteID: 057566277b3a5df428e5ca8171054e87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 1563}
+    spritePosition: {x: 803, y: 760}
+  - name: Main
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 406
+      y: 4
+      width: 176
+      height: 1475
+    spriteID: ba2e1ea3782ee3744b9ad9714695ddb2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 405, y: 3}
+    spritePosition: {x: 912, y: 763}
+  - name: Triangle
+    originalName: 
+    pivot: {x: 1, y: 0.066}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 590
+      y: 541
+      width: 197
+      height: 527
+    spriteID: 1b3cbd6b449bd8347a23fafc3c23dbca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 588, y: 540}
+    spritePosition: {x: 803, y: 727}
+  - name: Triangle
+    originalName: 
+    pivot: {x: 0, y: 0.066}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 590
+      y: 1076
+      width: 197
+      height: 527
+    spriteID: 1fd8458cbefdf3f47a493a642b6b0bdb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 589, y: 1074}
+    spritePosition: {x: 1000, y: 727}
+  - name: Triangle
+    originalName: 
+    pivot: {x: 1, y: 0.933}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 796
+      y: 5
+      width: 197
+      height: 527
+    spriteID: bd5fc32473469f7498218c1705ec195a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 794, y: 2}
+    spritePosition: {x: 803, y: 1745}
+  - name: Triangle
+    originalName: 
+    pivot: {x: 0, y: 0.933}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 590
+      y: 4
+      width: 198
+      height: 529
+    spriteID: 8cf2e7e60344ac049b55e338e26d9829
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 589, y: 3}
+    spritePosition: {x: 1000, y: 1744}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings: []
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  padding: 4
+  spriteSizeExpand: 0
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: "\u7EC4 1"
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 9397c56aba6c5404f8849bf2caadfecd
+    layerID: 57
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Triangle_rightSmall
+    spriteName: Triangle_rightSmall
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 347fd8264e5d8f045b562b5fe8bebf71
+    layerID: 71
+    mosaicPosition: {x: 590, y: 1611}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Triangle_leftSmall
+    spriteName: Triangle_leftSmall
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 179f16407a8d3a244b3de56b431ee9ef
+    layerID: 70
+    mosaicPosition: {x: 590, y: 1653}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Triangle_long
+    spriteName: Triangle_long
+    isGroup: 0
+    parentIndex: 0
+    spriteID: dfd7b60dd70a5914fb4b4cce2c6d59dd
+    layerID: 56
+    mosaicPosition: {x: 796, y: 539}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Triangle_updown
+    spriteName: Triangle_updown
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 9bc8f18c0874cd44190b416b954246ce
+    layerID: 52
+    mosaicPosition: {x: 4, y: 1030}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Rectangle
+    spriteName: Rectangle
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 9b694d3d6bfe7a24a8e357f212d013ed
+    layerID: 79
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Triangle_V
+    spriteName: Triangle_V
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 057566277b3a5df428e5ca8171054e87
+    layerID: 49
+    mosaicPosition: {x: 4, y: 1564}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Main
+    spriteName: Main
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ba2e1ea3782ee3744b9ad9714695ddb2
+    layerID: 48
+    mosaicPosition: {x: 406, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Triangle
+    spriteName: Triangle
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1b3cbd6b449bd8347a23fafc3c23dbca
+    layerID: 41
+    mosaicPosition: {x: 590, y: 541}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Triangle
+    spriteName: Triangle
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1fd8458cbefdf3f47a493a642b6b0bdb
+    layerID: 40
+    mosaicPosition: {x: 590, y: 1076}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Triangle
+    spriteName: Triangle
+    isGroup: 0
+    parentIndex: -1
+    spriteID: bd5fc32473469f7498218c1705ec195a
+    layerID: 37
+    mosaicPosition: {x: 796, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Triangle
+    spriteName: Triangle
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8cf2e7e60344ac049b55e338e26d9829
+    layerID: 26
+    mosaicPosition: {x: 590, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

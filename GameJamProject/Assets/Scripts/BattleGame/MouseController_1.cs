@@ -71,11 +71,14 @@ public class MouseController_1 : MonoBehaviour
         //当鼠标松开时
         if (Input.GetMouseButtonUp(0))
         {
-            //取消标记
-            target.GetComponent<ShapeBaseController>().isBeingDragged = false;
-            target = null;
-            isRotate = false;
-            GameDataMgr.instance.isBlock = false;
+            if (target != null)
+            {
+                //取消标记
+                target.GetComponent<ShapeBaseController>().isBeingDragged = false;
+                target = null;
+                isRotate = false;
+                GameDataMgr.instance.isBlock = false;
+            }
         }
         //当鼠标右键松开时
         if (Input.GetMouseButtonUp(1))

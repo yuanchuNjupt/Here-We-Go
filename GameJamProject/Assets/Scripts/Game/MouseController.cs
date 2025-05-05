@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
+    //最低透明度值
+    public float minAlpha = 0.2f;
+
     private Camera cam;
     private Vector2 offSet;
     private GameObject target;
@@ -13,8 +16,10 @@ public class MouseController : MonoBehaviour
     private int currentMaxOrder = 1;
     //美术图形的sr
     private SpriteRenderer sr;
+    private Vector2 centerPos;
     private Vector2 rotateStartDir;
     private bool isRotate = false;
+    private float maxDistance;
 
     void Start()
     {
@@ -36,6 +41,8 @@ public class MouseController : MonoBehaviour
                 offSet = (Vector2)target.transform.position - GetMouseWorldPos();
                 //将拖拽的图形置顶
                 TopUpOrder(target);//默认的解密图形的层数应该为1
+                //获取当前场景的主图形中心坐标
+                centerPos = GameDataMgr.instance.centerPos;
             }
         }
         //当鼠标右键按下时
@@ -60,9 +67,10 @@ public class MouseController : MonoBehaviour
         {
             target.transform.position = offSet + GetMouseWorldPos();
             //颜色渐变
-            float distance = Vector3.Distance(target.transform.position, Vector3.zero);
+            float distance = Vector3.Distance(target.transform.position, centerPos);
             Color c = sr.color;
-            c.a = Mathf.Clamp01(distance / 10f);
+            float t = Mathf.Clamp01(distance / 8);
+            c.a = Mathf.Lerp(minAlpha, 1f, t);
             sr.color = c;
         }
         //当鼠标右键按住时

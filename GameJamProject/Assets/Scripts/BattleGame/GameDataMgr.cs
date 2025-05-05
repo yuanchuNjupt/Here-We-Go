@@ -11,4 +11,6 @@ public class GameDataMgr
     public bool isBattleStart = false;
     //是否开启阻挡图形进入
     public bool isBlock = false;
+    //主图形中心坐标
+    public Vector2 centerPos = new Vector2(0, 0);
 }
