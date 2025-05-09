@@ -19,8 +19,8 @@ public class PolygonCollider2DMgr
     {
         if (!loadedPolygonCollider2D.ContainsKey(gameObject))
         {
-            PolygonCollider2D sr = gameObject.GetComponent<PolygonCollider2D>();
-            loadedPolygonCollider2D.Add(gameObject, sr);
+            PolygonCollider2D poly = gameObject.GetComponent<PolygonCollider2D>();
+            loadedPolygonCollider2D.Add(gameObject, poly);
         }
         return loadedPolygonCollider2D[gameObject];
     }

@@ -61,15 +61,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\ColliderController.cs" />
+    <Compile Include="Assets\Scripts\BattleGame\Enemy\Enemy2Action.cs" />
+    <Compile Include="Assets\Scripts\BattleGame\DestoryTime.cs" />
+    <Compile Include="Assets\Scripts\BattleGame\Enemy\Enemy1Action.cs" />
     <Compile Include="Assets\Scripts\BattleGame\GameDataMgr.cs" />
+    <Compile Include="Assets\Scripts\BattleGame\Enemy\Enemy3Action.cs" />
     <Compile Include="Assets\Scripts\BattleGame\ShapeController\BlueShpaeController.cs" />
+    <Compile Include="Assets\Scripts\BattleGame\PlayerController.cs" />
     <Compile Include="Assets\Scripts\BattleGame\ShapeController\RedShpaeController.cs" />
     <Compile Include="Assets\Scripts\BattleGame\MouseController_1.cs" />
     <Compile Include="Assets\Scripts\SpriteRendererMgr.cs" />
     <Compile Include="Assets\Scripts\PolygonCollider2DMgr.cs" />
     <Compile Include="Assets\Scripts\Game\MouseController.cs" />
     <Compile Include="Assets\Scripts\BattleGame\ShapeController\ShapeBaseController.cs" />
+    <Compile Include="Assets\Scripts\BattleGame\Enemy\BulletController.cs" />
+    <Compile Include="Assets\Scripts\BattleGame\Enemy\EnemyMgr.cs" />
     <Compile Include="Assets\Scripts\BattleGame\ShapeController\GreenShpaeController.cs" />
+    <Compile Include="Assets\Scripts\BattleGame\Enemy\EnemyActionBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -23,8 +23,6 @@ public class ShapeBaseController : MonoBehaviour
     //增长速率
     public double hpRate;
     public double atkRate;
-    //当前被鼠标托拽的图形
-    public bool isBeingDragged = false;
 
     protected double MaxHp;
     protected double time = 0;
@@ -33,41 +31,91 @@ public class ShapeBaseController : MonoBehaviour
     private Vector2 currentPos;
     private Quaternion currentAngle;
     //上一帧
-    private Quaternion previosuAngle;
-    private Vector2 previousPos;
+    protected Quaternion previousAngle;
+    protected Vector2 previousPos;
 
     //记录重叠的图形
-    protected List<GameObject> overShapes = new List<GameObject>();
+    protected HashSet<GameObject> overShapes = new HashSet<GameObject>();
+    protected ShapeBaseController c;
+
+    protected void Start()
+    {
+        MaxHp = hp;
+        previousAngle = transform.rotation;
+        previousPos = transform.position;
+        overShapes.Add(this.gameObject);
+    }
 
     protected void FixedUpdate()
     {
-        if (isBeingDragged)
-        {
-            previousPos = currentPos;
-            previosuAngle = currentAngle;
-            currentPos = transform.position;
-            previosuAngle = transform.rotation;
-        }
+        GameDataMgr.instance.isBlock = false;
+        previousPos = currentPos;
+        previousAngle = currentAngle;
+        currentPos = transform.position;
+        previousAngle = transform.rotation;
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        overShapes.Add(collision.gameObject);
+        if (!collision.CompareTag("Player"))
+            return;
+        GameObject newShape = collision.gameObject;
         c = collision.gameObject.GetComponent<ShapeBaseController>();
-        //重叠图形数大于2时，开启阻挡图形进入
-        if (overShapes.Count > 2)
+        int overShapeCount = 0;
+        foreach (var shape in overShapes)
         {
-            print("重叠图形数最多为2！");
+            if (IsOverLapping(newShape, shape))
+            {
+                //print(newShape.name + "与" + shape.name + "重叠");
+                overShapeCount++;
+            }
+        }
+
+        if (overShapeCount > 2)
+        {
+            print(gameObject.name + "该区域已有3个图形重叠，阻止新图形进入！");
+            print(c.previousPos + "+" + c.previousAngle);//鼠标松开时，仍有一帧成为鼠标停留的位置
             GameDataMgr.instance.isBlock = true;
-            collision.gameObject.transform.position = c.previousPos;
-            collision.gameObject.transform.rotation = c.previosuAngle;
+            newShape.transform.position = c.previousPos;
+            newShape.transform.rotation = c.previousAngle;
+        }
+        else
+        {
+            overShapes.Add(newShape);
         }
     }
 
-    protected ShapeBaseController c;
     protected virtual void OnTriggerStay2D(Collider2D collision)
     {
-        c = collision.gameObject.GetComponent<ShapeBaseController>();
+        /*        GameObject newShape = collision.gameObject;
+                c = collision.gameObject.GetComponent<ShapeBaseController>();
+                int overShapeCount = 0;
+                foreach (var shape in overShapes)
+                {
+                    if (IsOverLapping(newShape, shape))
+                    {
+                        //print(newShape.name + "与" + shape.name + "重叠");
+                        overShapeCount++;
+                    }
+                    else
+                    {
+                        //print(newShape.name + "与" + shape.name + "不不不重叠");
+                    }
+                }
+
+                if (overShapeCount > 3)
+                {
+                    print(gameObject.name + "该区域已有3个图形重叠，阻止新图形进入！");
+                    GameDataMgr.instance.isBlock = true;
+                    newShape.transform.position = c.previousPos;
+                    newShape.transform.rotation = c.previousAngle;
+                }
+                else
+                {
+                    overShapes.Add(newShape);
+                    //print("添加" + newShape.name);
+                    //print(gameObject.name + overShapes.Count);
+                }*/
     }
 
     protected void OnTriggerExit2D(Collider2D collision)
@@ -181,5 +229,22 @@ public class ShapeBaseController : MonoBehaviour
     protected float CalculateAddAtk(GameObject collision, float atkIncFactor)
     {
         return CalculateOverlapArea(PolygonCollider2DMgr.Instance.LoadPolygonCollider2D(gameObject), PolygonCollider2DMgr.Instance.LoadPolygonCollider2D(collision)) * atkIncFactor;
+    }
+
+    /// <summary>
+    /// 检测两个图形是否重叠
+    /// </summary>
+    private bool IsOverLapping(GameObject a, GameObject b)
+    {
+        /*        float overlap = CalculateOverlapArea(PolygonCollider2DMgr.Instance.LoadPolygonCollider2D(a), PolygonCollider2DMgr.Instance.LoadPolygonCollider2D(b));
+                return overlap > 0.001f;*/
+
+        var colA = a.GetComponent<Collider2D>();
+        var colB = b.GetComponent<Collider2D>();
+
+        var distance = Physics2D.Distance(colA, colB);
+
+        // 如果它们发生实际重叠，或者接近但距离很小，也可以认为是“覆盖”
+        return distance.isOverlapped || distance.distance < 0.01f;
     }
 }

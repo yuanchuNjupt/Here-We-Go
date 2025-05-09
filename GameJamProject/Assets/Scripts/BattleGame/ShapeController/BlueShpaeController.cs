@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class BlueShpaeController : ShapeBaseController
 {
-    void Start()
-    {
-        MaxHp = hp;
-    }
-
     // Update is called once per frame
     protected  void Update()
     {
@@ -26,6 +21,8 @@ public class BlueShpaeController : ShapeBaseController
 
     protected override void OnTriggerStay2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player"))
+            return;
         base.OnTriggerStay2D(collision);
         //计算collison受到的伤害增益
         c.atkRate =Math.Round(CalculateAddAtk(collision.gameObject, atkIncFactor), 2);

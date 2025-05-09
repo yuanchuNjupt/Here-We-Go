@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class RedShpaeController : ShapeBaseController
 {
-    void Start()
-    {
-        MaxHp = hp;
-    }
 
     protected void Update()
     {

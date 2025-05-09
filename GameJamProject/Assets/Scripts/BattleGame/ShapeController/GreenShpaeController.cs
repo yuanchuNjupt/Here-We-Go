@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class GreenShpaeController : ShapeBaseController
 {
-    private void Start()
-    {
-        MaxHp = hp;
-    }
 
     protected void Update()
     {
@@ -26,6 +22,8 @@ public class GreenShpaeController : ShapeBaseController
 
     protected override void OnTriggerStay2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player"))
+            return;
         base.OnTriggerStay2D(collision);
         //计算collison受到的血量增益
         c.hpRate = Math.Round(CalculateAddHp(collision.gameObject, hpIncFactor), 2);

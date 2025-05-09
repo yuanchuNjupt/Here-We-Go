@@ -139,7 +139,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 816, y: 2345}
+    uvTransform: {x: 815, y: 2344}
     spritePosition: {x: 1176, y: 857}
   - name: Diamond
     originalName: 
@@ -160,7 +160,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 3, y: 1933}
+    uvTransform: {x: 2, y: 1933}
     spritePosition: {x: 834, y: 466}
   - name: Triangle_up
     originalName: 
@@ -181,7 +181,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 816, y: 3}
+    uvTransform: {x: 815, y: 3}
     spritePosition: {x: 464, y: 1988}
   - name: Triangle_left
     originalName: 
@@ -202,7 +202,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 404, y: 1933}
+    uvTransform: {x: 404, y: 1932}
     spritePosition: {x: 729, y: 854}
   - name: Triangle
     originalName: 
@@ -225,10 +225,31 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 405, y: 3077}
     spritePosition: {x: 729, y: 1677}
+  - name: rectangle
+    originalName: 
+    pivot: {x: 1, y: 0.5}
+    alignment: 5
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1115
+      y: 403
+      width: 343
+      height: 510
+    spriteID: 5b77580040dec5a469fa7d6f3e7f8a67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1114, y: 402}
+    spritePosition: {x: 545, y: 1168}
   - name: Main
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 1, y: 0.5}
+    alignment: 5
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -244,7 +265,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 816, y: 1827}
+    uvTransform: {x: 816, y: 1826}
     spritePosition: {x: 888, y: 1168}
   - name: Triangle_down
     originalName: 
@@ -286,7 +307,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 816, y: 1115}
+    uvTransform: {x: 815, y: 1114}
     spritePosition: {x: 887, y: 1678}
   characterData:
     bones: []
@@ -391,6 +412,16 @@ ScriptedImporter:
     spriteID: 3959afe681685ad4a804b2bd9269e5af
     layerID: 9
     mosaicPosition: {x: 406, y: 3078}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: rectangle
+    spriteName: rectangle
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5b77580040dec5a469fa7d6f3e7f8a67
+    layerID: 35
+    mosaicPosition: {x: 1115, y: 403}
     flatten: 0
     isImported: 1
     isVisible: 1

@@ -33,8 +33,6 @@ public class MouseController_1 : MonoBehaviour
                 );
                 //记录射线接触的拖拽对象(最高order对象)
                 target = hits[0].collider.gameObject;
-                //标记为被鼠标拖拽的物体
-                target.GetComponent<ShapeBaseController>().isBeingDragged = true;
                 //获取鼠标点击位置与物体中心的偏移量
                 offSet = (Vector2)target.transform.position - GetMouseWorldPos();
             }
@@ -73,11 +71,8 @@ public class MouseController_1 : MonoBehaviour
         {
             if (target != null)
             {
-                //取消标记
-                target.GetComponent<ShapeBaseController>().isBeingDragged = false;
                 target = null;
                 isRotate = false;
-                GameDataMgr.instance.isBlock = false;
             }
         }
         //当鼠标右键松开时
