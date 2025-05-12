@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2982177965448514131}
   m_Layer: 0
   m_Name: Bullet2
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &303298029414926468
 MonoBehaviour:
@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  attack: 3
+  attack: 10
+  deadEff: {fileID: 3310189876294272195, guid: 1d0b8beeedce33646aaa094cb37a924b, type: 3}
 --- !u!60 &2982177965448514131
 PolygonCollider2D:
   m_ObjectHideFlags: 0

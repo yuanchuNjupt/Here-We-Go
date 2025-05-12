@@ -63,6 +63,7 @@
     <Compile Include="Assets\Plugins\Clipper2\Clipper.Engine.cs" />
     <Compile Include="Assets\Plugins\Clipper2\Clipper.cs" />
     <Compile Include="Assets\Plugins\Clipper2\HashCode.cs" />
+    <Compile Include="Assets\Plugins\Clipper2\obj\Debug\netstandard2.0\Clipper2Lib.AssemblyInfo.cs" />
     <Compile Include="Assets\Plugins\Clipper2\Clipper.RectClip.cs" />
     <Compile Include="Assets\Plugins\Clipper2\Clipper.Offset.cs" />
     <Compile Include="Assets\Plugins\Clipper2\Clipper.Minkowski.cs" />

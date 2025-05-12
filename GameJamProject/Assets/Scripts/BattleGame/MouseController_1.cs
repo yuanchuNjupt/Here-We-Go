@@ -36,6 +36,7 @@ public class MouseController_1 : MonoBehaviour
                 //获取鼠标点击位置与物体中心的偏移量
                 offSet = (Vector2)target.transform.position - GetMouseWorldPos();
             }
+            GameDataMgr.instance.isDragged = true;
         }
         //当鼠标右键按下时
         if (Input.GetMouseButtonDown(1))
@@ -49,6 +50,7 @@ public class MouseController_1 : MonoBehaviour
                 rotateStartDir = GetMouseWorldPos() - center;
                 isRotate = true;
             }
+            GameDataMgr.instance.isDragged = true;
         }
 
         //当鼠标拖拽时
@@ -74,12 +76,14 @@ public class MouseController_1 : MonoBehaviour
                 target = null;
                 isRotate = false;
             }
+            GameDataMgr.instance.isDragged = false;
         }
         //当鼠标右键松开时
         if (Input.GetMouseButtonUp(1))
         {
             isRotate = false;
             GameDataMgr.instance.isBlock = false;
+            GameDataMgr.instance.isDragged = false;
         }
     }
 

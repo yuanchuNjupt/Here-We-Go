@@ -9,20 +9,22 @@ using Unity.Mathematics;
 
 public class ShapeBaseController : MonoBehaviour
 {
-    //血量
+    [Tooltip("血量")]
     public double hp;
-    //攻击
+    [Tooltip("攻击")]
     public double atk;
-    //血量速率增加系数
+    [Tooltip("血量速率增加系数")]
     public float hpIncFactor;
-    //攻击速率增加系数
+    [Tooltip("攻击速率增加系数")]
     public float atkIncFactor;
-    //重叠>2排斥力速度
-    public float pushSpeed = 10;
 
-    //增长速率
+    [Tooltip("血量回复速率（/s）")]
     public double hpRate;
+    [Tooltip("攻击增长速率（/s）")]
     public double atkRate;
+
+    //游戏背景
+    public GameObject backGround;
 
     protected double MaxHp;
     protected double time = 0;
@@ -36,7 +38,10 @@ public class ShapeBaseController : MonoBehaviour
 
     //记录重叠的图形
     protected HashSet<GameObject> overShapes = new HashSet<GameObject>();
-    protected ShapeBaseController c;
+    protected SpriteRenderer sr;
+    protected Color color;
+    //初始透明度
+    protected float a;
 
     protected void Start()
     {
@@ -44,6 +49,9 @@ public class ShapeBaseController : MonoBehaviour
         previousAngle = transform.rotation;
         previousPos = transform.position;
         overShapes.Add(this.gameObject);
+        sr = GetComponent<SpriteRenderer>();
+        color = sr.color;
+        a = color.a;
     }
 
     protected void FixedUpdate()
@@ -52,32 +60,43 @@ public class ShapeBaseController : MonoBehaviour
         previousPos = currentPos;
         previousAngle = currentAngle;
         currentPos = transform.position;
-        previousAngle = transform.rotation;
+        currentAngle = transform.rotation;
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void Update()
+    {
+        //透明度随血量减少而减少
+        color.a = (float)(hp / MaxHp) * a;
+        sr.color = color;
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
+            //播放屏闪动画
+            backGround.GetComponent<Animator>().SetTrigger("shapeDead");
+        }
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player"))
             return;
         GameObject newShape = collision.gameObject;
-        c = collision.gameObject.GetComponent<ShapeBaseController>();
         int overShapeCount = 0;
         foreach (var shape in overShapes)
         {
             if (IsOverLapping(newShape, shape))
             {
-                //print(newShape.name + "与" + shape.name + "重叠");
                 overShapeCount++;
             }
         }
 
         if (overShapeCount > 2)
         {
-            print(gameObject.name + "该区域已有3个图形重叠，阻止新图形进入！");
-            print(c.previousPos + "+" + c.previousAngle);//鼠标松开时，仍有一帧成为鼠标停留的位置
+            print("该区域已有3个图形重叠，阻止新图形进入！");
             GameDataMgr.instance.isBlock = true;
-            newShape.transform.position = c.previousPos;
-            newShape.transform.rotation = c.previousAngle;
+            GameDataMgr.instance.isDragged = false;
+            newShape.transform.position = newShape.GetComponent<ShapeBaseController>().previousPos;
+            newShape.transform.rotation = newShape.GetComponent<ShapeBaseController>().previousAngle;
         }
         else
         {
@@ -85,44 +104,9 @@ public class ShapeBaseController : MonoBehaviour
         }
     }
 
-    protected virtual void OnTriggerStay2D(Collider2D collision)
-    {
-        /*        GameObject newShape = collision.gameObject;
-                c = collision.gameObject.GetComponent<ShapeBaseController>();
-                int overShapeCount = 0;
-                foreach (var shape in overShapes)
-                {
-                    if (IsOverLapping(newShape, shape))
-                    {
-                        //print(newShape.name + "与" + shape.name + "重叠");
-                        overShapeCount++;
-                    }
-                    else
-                    {
-                        //print(newShape.name + "与" + shape.name + "不不不重叠");
-                    }
-                }
-
-                if (overShapeCount > 3)
-                {
-                    print(gameObject.name + "该区域已有3个图形重叠，阻止新图形进入！");
-                    GameDataMgr.instance.isBlock = true;
-                    newShape.transform.position = c.previousPos;
-                    newShape.transform.rotation = c.previousAngle;
-                }
-                else
-                {
-                    overShapes.Add(newShape);
-                    //print("添加" + newShape.name);
-                    //print(gameObject.name + overShapes.Count);
-                }*/
-    }
-
-    protected void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         overShapes.Remove(collision.gameObject);
-        hpRate = 0;
-        atkRate = 0;
     }
 
     #region 计算重叠面积
@@ -236,9 +220,7 @@ public class ShapeBaseController : MonoBehaviour
     /// </summary>
     private bool IsOverLapping(GameObject a, GameObject b)
     {
-        /*        float overlap = CalculateOverlapArea(PolygonCollider2DMgr.Instance.LoadPolygonCollider2D(a), PolygonCollider2DMgr.Instance.LoadPolygonCollider2D(b));
-                return overlap > 0.001f;*/
-
+        if (a == b) return false;
         var colA = a.GetComponent<Collider2D>();
         var colB = b.GetComponent<Collider2D>();
 

@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class BlueShpaeController : ShapeBaseController
 {
-    // Update is called once per frame
-    protected  void Update()
+    protected override void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Alpha1)) GameDataMgr.instance.isBattleStart = true;//测试用
+        base.Update();
         if (!GameDataMgr.instance.isBattleStart) return;
         time += Time.deltaTime;
+        //增加血量
         if (time >= 1)
         {
             hp += hpRate;
@@ -19,12 +19,39 @@ public class BlueShpaeController : ShapeBaseController
         }
     }
 
-    protected override void OnTriggerStay2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player"))
+        base.OnTriggerEnter2D (collision);
+        //接触图形后反弹敌方子弹
+        if (collision.CompareTag("EnemyBullet"))
+        {
+            //调转子弹方向
+            Vector3 rotation = collision.transform.eulerAngles;
+            rotation.z += 180;
+            collision.transform.eulerAngles = rotation;
+            //去除敌方子弹标签
+            collision.tag = "Untagged";
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        var c = collision.GetComponent<ShapeBaseController>();
+        if (collision.CompareTag("Player"))
+        {
+            //计算collison受到的伤害增益
+            c.atkRate = Math.Round(CalculateAddAtk(collision.gameObject, atkIncFactor), 2);
+        }
+    }
+
+    protected override void OnTriggerExit2D(Collider2D collision)
+    {
+        if (GameDataMgr.instance.isBattleStart || !GameDataMgr.instance.isDragged)
             return;
-        base.OnTriggerStay2D(collision);
-        //计算collison受到的伤害增益
-        c.atkRate =Math.Round(CalculateAddAtk(collision.gameObject, atkIncFactor), 2);
+        base.OnTriggerExit2D(collision);
+        if (collision.GetComponent<GreenShpaeController>() != null)
+        {
+            hpRate = 0;
+        }
     }
 }

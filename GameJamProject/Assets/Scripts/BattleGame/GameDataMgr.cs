@@ -13,4 +13,8 @@ public class GameDataMgr
     public bool isBlock = false;
     //主图形中心坐标
     public Vector2 centerPos = new Vector2(0, 0);
+    //红色形状的攻击力
+    public float attack;
+    //是否处于拖拽中
+    public bool isDragged = false;
 }
