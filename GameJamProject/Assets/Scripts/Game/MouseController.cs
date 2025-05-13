@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
-    //最低透明度值
-    public float minAlpha = 0.2f;
+    //左边透明度值
+    public byte leftAlpha = 60;
+    //右边透明度值
+    public byte rightAlpha = 40;
 
     private Camera cam;
     private Vector2 offSet;
@@ -67,10 +69,20 @@ public class MouseController : MonoBehaviour
         {
             target.transform.position = offSet + GetMouseWorldPos();
             //颜色渐变
-            float distance = Vector3.Distance(target.transform.position, centerPos);
-            Color c = sr.color;
-            float t = Mathf.Clamp01(distance / 8);
-            c.a = Mathf.Lerp(minAlpha, 1f, t);
+            Vector3 screenPos = cam.WorldToScreenPoint(target.transform.position);
+            float halfWidth = Screen.width / 2;
+            Color32 c = sr.color;
+            if (screenPos.x < halfWidth)
+            {
+                c.a = leftAlpha;
+                //还原解谜大小与方向
+                target.transform.localScale = new Vector3(1, 1, 1);
+                target.transform.rotation = Quaternion.identity;
+            }
+            else
+            {
+                c.a = rightAlpha;
+            }
             sr.color = c;
         }
         //当鼠标右键按住时

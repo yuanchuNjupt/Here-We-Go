@@ -54,6 +54,9 @@ public class EnemyMgr : MonoBehaviour
     //波次
     private int phase = 0;
 
+    private Coroutine coEnemy1;
+    private Coroutine coEnemy2;
+
     void Start()
     {
         Camera cam = Camera.main;
@@ -74,34 +77,32 @@ public class EnemyMgr : MonoBehaviour
         {
             //第一波
             print("第一波");
-            StartCoroutine(CreateEnemy1(firstEnemy1Num));
+            coEnemy1 = StartCoroutine(CreateEnemy1(firstEnemy1Num));
             phase = 1;
         }
         else if (phase == 1 && time >= firstTime && time < secondTime)
         {
             //第二波
-            print("第er波");
-            StopCoroutine(CreateEnemy1(firstEnemy1Num));
-            StartCoroutine(CreateEnemy1(secondEnemy1Num));
-            StartCoroutine(CreateEnemy2(secondEnemy2Num));
+            print("第二波");
+            StopCoroutine(coEnemy1);
+            coEnemy1 = StartCoroutine(CreateEnemy1(secondEnemy1Num));
+            coEnemy2 = StartCoroutine(CreateEnemy2(secondEnemy2Num));
             phase = 2;
         }
         else if (phase == 2 && time >= secondTime && time < thirdTime)
         {
             //第三波
-            print("第san波");
-            StopCoroutine(CreateEnemy1(secondEnemy1Num));
-            StopCoroutine(CreateEnemy2(secondEnemy2Num));
-            StartCoroutine(CreateEnemy1(thirdEnemy1Num));
-            StartCoroutine(CreateEnemy2(thirdEnemy2Num));
+            print("第三波");
+            StopCoroutine(coEnemy1);
+            StopCoroutine(coEnemy2);
+            coEnemy1 = StartCoroutine(CreateEnemy1(thirdEnemy1Num));
+            coEnemy2 = StartCoroutine(CreateEnemy2(thirdEnemy2Num));
             phase = 3;
         }
         else if (phase == 3)
         {
             //结束所有进程
-            StopCoroutine(CreateEnemy1(thirdEnemy1Num));
-            StopCoroutine(CreateEnemy2(thirdEnemy2Num));
-            StopCoroutine(CreateEnemy3());
+            gameObject.SetActive(false);
             //通关
             print("通关");
         }
