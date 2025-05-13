@@ -46,9 +46,9 @@ public class BlueShpaeController : ShapeBaseController
 
     protected override void OnTriggerExit2D(Collider2D collision)
     {
+        base.OnTriggerExit2D(collision);
         if (GameDataMgr.instance.isBattleStart || !GameDataMgr.instance.isDragged)
             return;
-        base.OnTriggerExit2D(collision);
         if (collision.GetComponent<GreenShpaeController>() != null)
         {
             hpRate = 0;
